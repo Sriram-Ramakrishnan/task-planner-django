@@ -1,0 +1,20 @@
+.content{
+    display: flex;
+}
+
+.signup{
+    position: absolute;
+    left:30%;
+    top: 10%;
+    width: 40%;
+    padding: 5%;
+}
+
+.navbar{
+    background-color: #e3f2fd;
+    
+}
+.navbar .container-fluid{
+    display: flex;
+    margin: 0 15%;
+}
