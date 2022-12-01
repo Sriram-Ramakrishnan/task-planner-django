@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from taskplanner import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Auth 
+    path('signup/', views.signupuser, name='signupuser'),
+    path('logout/', views.logoutuser, name='logoutuser'),
+    #Task planner
+    path('home/', views.home, name='home'),
 ]

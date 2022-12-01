@@ -1,0 +1,15 @@
+<!-- Import the base template -->
+{% extends 'taskplanner/base.html'%}
+
+
+{% block content %}
+<h1>Sign Up Page</h1>
+<h2>{{ error }}</h2>
+<form action="" method="post">
+    <!-- CSRF TOKEN is necessary -->
+    {{ form.as_div }}
+    {% csrf_token %}
+    <br><button type="submit">Submit</button>
+</form>
+{% endblock %}
+
