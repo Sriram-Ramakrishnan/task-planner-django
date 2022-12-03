@@ -18,3 +18,23 @@
     display: flex;
     margin: 0 15%;
 }
+
+#auth-page {
+    position: absolute;
+    left: 30%;
+    width: 40%;
+    padding: 2%;
+    border: 1px solid black;
+  }
+
+.signupform,
+.loginform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signupform{
+    display: none;
+}
+
