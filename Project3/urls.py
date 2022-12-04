@@ -25,5 +25,5 @@ urlpatterns = [
     path('login/', views.loginuser, name='loginuser'),
 
     #Task planner
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
 ]

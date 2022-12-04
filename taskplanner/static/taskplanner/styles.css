@@ -2,12 +2,13 @@
     display: flex;
 }
 
-.signup{
+.signup,.login{
     position: absolute;
     left:30%;
     top: 10%;
     width: 40%;
-    padding: 5%;
+    padding: 3% 5%;
+    margin: 1% auto;
 }
 
 .navbar{

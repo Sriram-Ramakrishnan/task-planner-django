@@ -1,6 +1,10 @@
-<!-- Import the base template -->
 {% extends 'taskplanner/base.html'%}
 {% block content %}
+    {% if user.is_authenticated %}
+    Your Tasks
+    {% else %}
 
-
+    <div>Welcome to Task Planner!</div>
+    <div>Login/ Sign up here!</div>
+    {% endif %}
 {% endblock %}
