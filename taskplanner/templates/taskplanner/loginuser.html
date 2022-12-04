@@ -21,6 +21,7 @@
     {% csrf_token %}
     <button type="submit" class="btn btn-primary">Login </button>
     </form>
+    <a class="text-center" aria-current="page" href="{% url 'signupuser' %}"> New User? Sign Up here!</a>
 </div>
 {% endblock %}
 

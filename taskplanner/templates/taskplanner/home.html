@@ -5,6 +5,7 @@
     {% else %}
 
     <div>Welcome to Task Planner!</div>
-    <div>Login/ Sign up here!</div>
+
+    <a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> <div>Sign up here!</div></a>
     {% endif %}
 {% endblock %}
