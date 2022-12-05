@@ -26,13 +26,13 @@
             <ul class="navbar-nav">
               {% if user.is_authenticated %}
               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{% url 'addtask' %}">Add Task</a>
+                  <a class="nav-link active text-info" aria-current="page" href="{% url 'addtask' %}">Add Task</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page">Create Task</a>
+                <a class="nav-link active" aria-current="page">Completed Tasks</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page">Create Task</a>
+                <a class="nav-link active" aria-current="page"> </a>
               </li>
               </form>
               {% endif %}

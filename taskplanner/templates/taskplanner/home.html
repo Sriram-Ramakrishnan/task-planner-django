@@ -7,8 +7,19 @@
     </div>
     {% else %}
 
-    Your Taskssss
-    
-    
+    Your Tasks
+    <ul class="tasks">
+        {% for task in tasks %}
+        <li><div class="card">
+            <div class="card-header">{{task.title}}</div>
+            <div class="card-body">
+            {% if task.description %}
+                {{task.description}}
+            {% endif %}
+
+            </div>
+        </div></li>
+        {% endfor %}
+    </ul>
     {% endif %}
 {% endblock %}

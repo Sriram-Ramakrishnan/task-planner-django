@@ -41,6 +41,11 @@
     display: none;
 }
 
+/* ---------------------Tasks styling----------------------------- */
+.tasks{
+    list-style: none;
+}
+
 /*---------------------Mobile View------------------*/
 
 @media (max-width: 768px) {
