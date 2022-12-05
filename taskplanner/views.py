@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login,logout,authenticate
-
+from .forms import taskForm
 # Create your views here.
 def signupuser(request):
     data = {}
@@ -54,6 +54,16 @@ def loginuser(request):
 
 def addtask(request):
     if request.method == 'GET':
-        return render(request, 'taskplanner/addtask.html')
+        return render(request, 'taskplanner/addtask.html', {'form': taskForm()})
     else:
-        pass
+        try:
+            #----------Task created--------------
+            form = taskForm(request.POST)
+            newtask = form.save(commit=False) # To not save in database immediately
+            #Appending the task to the specific user 
+            newtask.user = request.user
+            newtask.save()
+            return redirect('home')
+        except ValueError:
+            return render(request, 'taskplanner/addtask.html', {'form': taskForm(),'error':'Improper data, try again!'})
+

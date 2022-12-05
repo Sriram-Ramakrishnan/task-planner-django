@@ -7,7 +7,7 @@ class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True)
-    deadline = models.DateField()
+    deadline = models.DateField(null=True,blank=True)
     time_req = models.TimeField(null=True,blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     

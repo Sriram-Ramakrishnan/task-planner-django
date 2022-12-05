@@ -23,25 +23,38 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page">{{ user.username }}</a>
-                    </li>
-                    <form action="{% url 'logoutuser' %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-danger">Logout</button>
-                    </form>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}">Signup</a>
-                      </li>
-                    <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{% url 'loginuser' %}">Login</a>
-                      </li>
-                    {% endif %}
-                    
-                  </ul>
+            <ul class="navbar-nav">
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'addtask' %}">Add Task</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page">Create Task</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page">Create Task</a>
+              </li>
+              </form>
+              {% endif %}
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page">{{ user.username }}</a>
+                </li>
+                <form action="{% url 'logoutuser' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger">Logout</button>
+                </form>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}">Signup</a>
+                  </li>
+                <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'loginuser' %}">Login</a>
+                  </li>
+                {% endif %}
+              </ul>
           </div>
         </div>
     </nav>
