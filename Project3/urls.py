@@ -26,4 +26,6 @@ urlpatterns = [
 
     #Task planner
     path('', views.home, name='home'),
+    path('add/', views.addtask, name='addtask'),
+
 ]

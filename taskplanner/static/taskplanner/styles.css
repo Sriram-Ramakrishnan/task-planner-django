@@ -1,14 +1,14 @@
 .content{
     display: flex;
 }
-
+/*----------------------Individual Login and Signup page CSS---------------- */
 .signup,.login{
     position: absolute;
     left:30%;
     top: 10%;
     width: 40%;
     padding: 3% 5%;
-    margin: 1% auto;
+    margin: 2% auto;
 }
 
 .navbar{
@@ -18,8 +18,10 @@
 .navbar .container-fluid{
     display: flex;
     margin: 0 15%;
+    align-items: center;
 }
 
+/*---------------------CSS of Integrated Login and Signup Page------------------*/
 #auth-page {
     position: absolute;
     left: 30%;
@@ -39,3 +41,24 @@
     display: none;
 }
 
+/*---------------------Mobile View------------------*/
+
+@media (max-width: 768px) {
+    /* Signup and Login */
+    .signup,.login{
+        position: relative;
+        width: 90%;
+        left: 5%;
+        margin: 10% 0;
+    }
+    .signup button, .login button{
+        width: 100%;
+        margin-bottom: 2.5%;
+    }
+    /* Navbar */
+    .navbar .container-fluid{
+        display: flex;
+        margin: 0 5%;
+        align-items: center;
+    }
+}

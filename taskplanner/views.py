@@ -44,9 +44,16 @@ def loginuser(request):
         username = request.POST['username'].strip()
         password = request.POST['password'].strip()
         user = authenticate(username=username, password=password)
-
+        x = None
         if user is not None:
             login(request, user)
             return redirect('home')
         else:
             return render(request, 'taskplanner/loginuser.html', {'form':AuthenticationForm(), 'error': username })
+
+
+def addtask(request):
+    if request.method == 'GET':
+        return render(request, 'taskplanner/addtask.html')
+    else:
+        pass

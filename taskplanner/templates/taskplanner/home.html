@@ -4,8 +4,11 @@
     Your Tasks
     {% else %}
 
-    <div>Welcome to Task Planner!</div>
-
-    <a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> <div>Sign up here!</div></a>
+    <div class="card text-center info">
+        <h3>Welcome to Task manager!</h3>
+        <div><a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> Sign up here!</a></div>
+    </div>
+    
+    
     {% endif %}
 {% endblock %}
