@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
@@ -76,3 +76,9 @@ def addtask(request):
         except ValueError:
             return render(request, 'taskplanner/addtask.html', {'form': TaskForm(),'error':'Improper data, try again!'})
 
+#-------------- View a task separately -----------
+
+def viewtask(request, task_pk):
+    task = get_object_or_404(Task,pk=task_pk)
+    data = {'id': task_pk,'task':task}
+    return render(request, 'taskplanner/task.html', data)

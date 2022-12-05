@@ -1,0 +1,15 @@
+{% extends 'taskplanner/base.html'%}
+{% block content %}    
+<div class="tasks">
+    <div class="card task">
+        <div class="card-header">{{task.title}}</div>
+        <div class="card-body">
+        {% if task.description %}
+            {{task.description}}
+        {% endif %}
+        </div>
+    </div>
+</div>
+<br>
+<a href="{% url 'home' %}" class="btn btn-outline-primary"> Go back </a>
+{% endblock %}

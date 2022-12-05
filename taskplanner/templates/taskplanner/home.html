@@ -6,8 +6,8 @@
         <div><a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> Sign up here!</a></div>
     </div>
     {% else %}
-
-    Your Tasks
+    <br>
+    <h3>Your Tasks</h3>
     <ul class="tasks">
         {% for task in tasks %}
         <li><div class="card">
@@ -16,7 +16,7 @@
             {% if task.description %}
                 {{task.description}}
             {% endif %}
-
+            <a href="{% url 'viewtask' task.id %}"> Click here to view!</a>
             </div>
         </div></li>
         {% endfor %}

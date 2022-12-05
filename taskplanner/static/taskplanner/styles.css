@@ -1,5 +1,7 @@
 .content{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 /*----------------------Individual Login and Signup page CSS---------------- */
 .signup,.login{
@@ -43,8 +45,18 @@
 
 /* ---------------------Tasks styling----------------------------- */
 .tasks{
+    width: 50%;
     list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
+
+.tasks .card{
+    margin: 2.5% 0;
+}
+
 
 /*---------------------Mobile View------------------*/
 
