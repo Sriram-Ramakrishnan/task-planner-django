@@ -1,7 +1,13 @@
+/*----------------------Landing page styling---------------- */
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.landing{
+    margin: 5%;
+    padding: 5%;
+    width: 50%;
 }
 /*----------------------Individual Login and Signup page CSS---------------- */
 .signup,.login{

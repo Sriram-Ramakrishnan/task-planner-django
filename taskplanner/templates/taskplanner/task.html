@@ -20,7 +20,7 @@
             </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Save Task</button>
-        {% if task.completed is None %}
+        {% if task.completed is not True %}
         <button type="button" class="btn btn-outline-primary" onclick="$('#complete').click()">Complete Task</button>
         {% else %}
         <button type="button" class="btn btn-outline-primary" onclick="$('#complete').click()">Redo Task </button>
@@ -29,7 +29,7 @@
         </form>
         <div class="buttons">
             <!-- Complete the task -->
-            {% if task.completed is None %}
+            {% if task.completed is not True %}
             <form style='display: none;' action="{% url 'completetask' task.id %}" method="post">
                 {% csrf_token %}
                 <button type="submit" id="complete"> Complete Task </button>
@@ -38,7 +38,7 @@
             {% else %}
             <form style='display: none;' action="{% url 'redotask' task.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit" id="complete"> Complete Task </button>
+                <button type="submit" id="complete"> Redo Task </button>
             </form>
             {% endif %}
             

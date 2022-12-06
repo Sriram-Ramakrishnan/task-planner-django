@@ -1,13 +1,32 @@
 {% extends 'taskplanner/base.html'%}
 {% block content %}
     {% if not user.is_authenticated %}
-    <div class="card text-center text-info">
-        <h3>Welcome to Task manager!</h3>
-        <div><a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> Sign up here!</a></div>
+    <br>
+    <div class="text-center landing">
+        <h3>Welcome to Task Planner!</h3>
+        <p>
+            Here you can manage your tasks and keep track of what has been and what is remaining very easily!
+            You can customise your tasks, delete them, and even redo them if it comes up again!
+        </p>
+        <div>
+            <button class="btn btn-outline-primary"><a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}">Sign up here!</a></button>
+            <button class="btn btn-outline-primary"><a class="nav-link active" aria-current="page" href="{% url 'loginuser' %}">Login here!</a></button>
+        </div>
     </div>
     {% else %}
     <br>
     <h3>Your Tasks</h3>
+
+    {% if tasks.count == 0 %}
+        <div class="text-center">
+            You dont have any pending tasks. Nice!
+            <br>
+            To create a task,
+            <a class="nav-link active" aria-current="page" href="{% url 'addtask' %}">
+                Click here to get started!</a>
+        </div>
+    {% endif %}
+
     <ul class="tasks">
         {% for task in tasks %}
         <li><div class="card">

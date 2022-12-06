@@ -128,3 +128,14 @@ def deletetask(request, task_pk):
     if request.method == 'POST':
         task.delete()
         return redirect('home')
+
+#----------------- Redo a task ------------------
+@login_required
+def redotask(request,task_pk):
+    task = get_object_or_404(Task,pk=task_pk, user = request.user)
+    data = {'task':task}
+    if request.method == 'POST':
+        task.completed = False
+        task.completed_date = None
+        task.save()
+        return redirect('home')
