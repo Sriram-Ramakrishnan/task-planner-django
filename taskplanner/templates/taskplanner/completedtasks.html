@@ -1,12 +1,6 @@
 {% extends 'taskplanner/base.html'%}
 {% block content %}
-    {% if not user.is_authenticated %}
-    <div class="card text-center info">
-        <h3>Welcome to Task manager!</h3>
-        <div><a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> Sign up here!</a></div>
-    </div>
-    {% else %}
-    <br>
+<br>
     <h3>Completed Tasks</h3>
     <ul class="tasks">
         {% for task in tasks %}
@@ -16,7 +10,7 @@
             {% if task.description %}
                 {{task.description}}
             {% endif %}
-            <a href="{% url 'viewtask' task.id %}"> Click here to view!</a>
+            <a href="{% url 'viewtask' task.id %}" class="stretched-link"></a>
             </div>
             <div class="card-footer">
                 Completed on {{task.completed_date}}
@@ -24,5 +18,4 @@
         </div></li>
         {% endfor %}
     </ul>
-    {% endif %}
 {% endblock %}

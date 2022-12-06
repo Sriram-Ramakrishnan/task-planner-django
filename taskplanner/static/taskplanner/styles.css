@@ -65,8 +65,13 @@
 
 /* ---------------------Individual Tasks----------------------------- */
 .task{
+    margin: 2.5% 0;
     padding: 2.5%;
+    width: 40%;
 }   
+.task .task{
+    width: 100%;
+}
 
 
 

@@ -16,8 +16,12 @@
             {% if task.description %}
                 {{task.description}}
             {% endif %}
-            <a href="{% url 'viewtask' task.id %}"> Click here to view!</a>
+            <a href="{% url 'viewtask' task.id %}" class="stretched-link"></a>
             </div>
+            <div class="card-footer">
+                {% if task.time_req %}
+                    Time needed to complete: {{task.time_req}}
+                {% endif %}</div>
         </div></li>
         {% endfor %}
     </ul>

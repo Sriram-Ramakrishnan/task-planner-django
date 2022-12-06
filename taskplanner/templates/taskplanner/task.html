@@ -2,8 +2,8 @@
 {% block content %}  
 
 <h2 class="text-danger"> {{ error }}</h2>
-<div class="tasks">
-    <div class="card ">
+    <div class="card task">
+        <h3 class="text-center">Modify task</h3>
         <!-- Save your task -->
         <form action="" method="post" class="task">
             <div class="mb-3">
@@ -20,15 +20,28 @@
             </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Save Task</button>
-        <button type="button" class="btn btn-success" onclick="$('#complete').click()">Complete</button>
-        <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Delete</button>
+        {% if task.completed is None %}
+        <button type="button" class="btn btn-outline-primary" onclick="$('#complete').click()">Complete Task</button>
+        {% else %}
+        <button type="button" class="btn btn-outline-primary" onclick="$('#complete').click()">Redo Task </button>
+        {% endif %}
+        <button type="button" class="btn btn-outline-danger" onclick="$('#delete').click()">Delete Task </button>
         </form>
         <div class="buttons">
             <!-- Complete the task -->
+            {% if task.completed is None %}
             <form style='display: none;' action="{% url 'completetask' task.id %}" method="post">
                 {% csrf_token %}
                 <button type="submit" id="complete"> Complete Task </button>
             </form>
+            <!-- If user wants to use the task again -->
+            {% else %}
+            <form style='display: none;' action="{% url 'redotask' task.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="complete"> Complete Task </button>
+            </form>
+            {% endif %}
+            
             <!-- Delete the task -->
             <form style='display: none;' action="{% url 'deletetask' task.id %}" method="post">
                 {% csrf_token %}
@@ -36,7 +49,6 @@
             </form>
         </div>
     </div>
-</div>
-<br>
 <a href="{% url 'home' %}" class="btn btn-outline-primary"> Go back </a>
+<br>
 {% endblock %}

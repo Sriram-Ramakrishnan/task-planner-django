@@ -14,8 +14,9 @@
                 <textarea name="description" cols="40" rows="10" id="id_description" class="form-control"></textarea>
             </div>
             <div class="mb-3">
-                <label for="id_time_req" class="form-label">Time req</label>
+                <label for="id_time_req" class="form-label">Time required</label>
                 <input type="text" name="time_req" id="id_time_req" class="form-control">
+                <div class="form-text"> You can enter time in any format <br> E.g. 45 minutes, 2 hours </div>
             </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Create Task</button>
