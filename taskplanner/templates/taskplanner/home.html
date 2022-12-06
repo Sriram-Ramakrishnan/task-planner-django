@@ -1,7 +1,7 @@
 {% extends 'taskplanner/base.html'%}
 {% block content %}
     {% if not user.is_authenticated %}
-    <div class="card text-center info">
+    <div class="card text-center text-info">
         <h3>Welcome to Task manager!</h3>
         <div><a class="nav-link active" aria-current="page" href="{% url 'signupuser' %}"> Sign up here!</a></div>
     </div>

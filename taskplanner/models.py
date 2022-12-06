@@ -11,7 +11,7 @@ class Task(models.Model):
     # When the task was created:
     created = models.DateField(auto_now_add=True)
     # The time you need to completed the task
-    time_req = models.TimeField(null=True,blank=True)
+    time_req = models.CharField(max_length=100,null=True,blank=True)
     # Task has been completed or not:
     completed = models.BooleanField(null=True,blank=True)
     # Date on which you completed the task:

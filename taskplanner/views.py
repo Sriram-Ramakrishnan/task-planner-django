@@ -6,7 +6,7 @@ from django.contrib.auth import login,logout,authenticate
 from .models import Task
 from .forms import TaskForm
 from django.utils import timezone
-
+from django.contrib.auth.decorators import login_required
 
 #-------------- Creating a user ------------------
 def signupuser(request):
@@ -38,7 +38,9 @@ def home(request):
         return render(request, 'taskplanner/home.html', {'tasks':tasks})
     except TypeError:
         return render(request, 'taskplanner/home.html')
+        
 #-------------- Logging out a user ------------------
+@login_required
 def logoutuser(request):
     #Anything inside an url is a GET method
     # The urls loads automatically so if it is a GET method it will log them out
@@ -62,6 +64,7 @@ def loginuser(request):
             return render(request, 'taskplanner/loginuser.html', {'form':AuthenticationForm(), 'error': username })
 
 #-------------- Add a task ------------------
+@login_required
 def addtask(request):
     if request.method == 'GET':
         return render(request, 'taskplanner/addtask.html', {'form': TaskForm()})
@@ -78,7 +81,7 @@ def addtask(request):
             return render(request, 'taskplanner/addtask.html', {'form': TaskForm(),'error':'Improper data, try again!'})
 
 #-------------- View a task separately -----------
-
+@login_required
 def viewtask(request, task_pk):
     task = get_object_or_404(Task,pk=task_pk, user = request.user)
     data = {'task':task}
@@ -98,6 +101,7 @@ def viewtask(request, task_pk):
             return render(request, 'taskplanner/task.html',data)
 
 #----------------- Complete a task ------------------
+@login_required
 def completetask(request,task_pk):
     task = get_object_or_404(Task,pk=task_pk, user = request.user)
     data = {'task':task}
@@ -108,6 +112,7 @@ def completetask(request,task_pk):
         return redirect('home')
 
 #--------------- View Completed Tasks ---------------
+@login_required
 def viewcompletedtasks(request):
     try:
         tasks = Task.objects.filter(user = request.user, completed_date__isnull=False).order_by('-completed_date')
@@ -116,6 +121,7 @@ def viewcompletedtasks(request):
         return render(request, 'taskplanner/home.html')
 
 #--------------- Delete a task ---------------
+@login_required
 def deletetask(request, task_pk):
     task = get_object_or_404(Task,pk=task_pk, user = request.user)
     data = {'task':task}

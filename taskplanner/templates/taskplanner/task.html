@@ -1,25 +1,40 @@
 {% extends 'taskplanner/base.html'%}
 {% block content %}  
 
-<h2 class="alert alert-danger"> {{ error }}</h2>
+<h2 class="text-danger"> {{ error }}</h2>
 <div class="tasks">
-    <div class="card task">
+    <div class="card ">
         <!-- Save your task -->
-        <form action="" method="post">
-            {{ form.as_div }}
+        <form action="" method="post" class="task">
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                <input type="text" name="title" maxlength="100" required="" id="id_title" class="form-control" value="{{ task.title }}">  
+            </div>
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                <textarea name="description" cols="40" rows="10" id="id_description" class="form-control" value="">{{ task.description }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="id_time_req" class="form-label" >Time req</label>
+                <input type="text" name="time_req" id="id_time_req" class="form-control" value="{{ task.time_req }}">
+            </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Save Task</button>
+        <button type="button" class="btn btn-success" onclick="$('#complete').click()">Complete</button>
+        <button type="button" class="btn btn-danger" onclick="$('#delete').click()">Delete</button>
         </form>
-        <!-- Complete the task -->
-        <form action="{% url 'completetask' task.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-success"> Complete Task </button>
-        </form>
-        <!-- Delete the task -->
-        <form action="{% url 'deletetask' task.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-danger"> Delete Task </button>
-        </form>
+        <div class="buttons">
+            <!-- Complete the task -->
+            <form style='display: none;' action="{% url 'completetask' task.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="complete"> Complete Task </button>
+            </form>
+            <!-- Delete the task -->
+            <form style='display: none;' action="{% url 'deletetask' task.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="delete"> Delete Task </button>
+            </form>
+        </div>
     </div>
 </div>
 <br>

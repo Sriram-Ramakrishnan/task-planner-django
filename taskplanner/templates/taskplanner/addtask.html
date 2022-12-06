@@ -1,11 +1,22 @@
 {% extends 'taskplanner/base.html'%}
 
 {% block content %}
-    <div class="card">
+    <div class="task card">
         <h1 class="text-center"> Create Task </h1>
-        <h2>{{ error }}</h2>
-        <form action="" method="post">
-            {{ form.as_div }}
+        <h2 class="text-danger">{{ error }}</h2>
+        <form action="" method="post" class="task">
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                <input type="text" name="title" maxlength="100" required="" id="id_title" class="form-control">  
+            </div>
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                <textarea name="description" cols="40" rows="10" id="id_description" class="form-control"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="id_time_req" class="form-label">Time req</label>
+                <input type="text" name="time_req" id="id_time_req" class="form-control">
+            </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Create Task</button>
         </form>
