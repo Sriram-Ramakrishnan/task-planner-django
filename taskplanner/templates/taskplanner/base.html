@@ -29,10 +29,10 @@
                   <a class="nav-link active text-info" aria-current="page" href="{% url 'addtask' %}">Add Task</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page">Completed Tasks</a>
+                <a class="nav-link active" aria-current="page"  href="{% url 'home' %}" >Current Tasks</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page"> </a>
+                <a class="nav-link active" aria-current="page"  href="{% url 'viewcompletedtasks' %}" > Completed Tasks </a>
               </li>
               </form>
               {% endif %}

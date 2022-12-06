@@ -114,7 +114,7 @@ def completetask(request,task_pk):
 #--------------- View Completed Tasks ---------------
 def viewcompletedtasks(request):
     try:
-        tasks = Task.objects.filter(user = request.user, completed_date__isnull=True)
-        return render(request, 'taskplanner/home.html', {'tasks':tasks})
+        tasks = Task.objects.filter(user = request.user, completed_date__isnull=False)
+        return render(request, 'taskplanner/completedtasks.html', {'tasks':tasks})
     except TypeError:
         return render(request, 'taskplanner/home.html')
