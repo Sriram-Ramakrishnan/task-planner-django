@@ -18,13 +18,19 @@
     <h3>Your Tasks</h3>
 
     {% if tasks.count == 0 %}
-        <div class="text-center">
-            You dont have any pending tasks. Nice!
+        <h5 class="text-center text-primary landing">
+            You do not have any pending tasks. Nice Job!
+            To redo a task, go to Completed Tasks and select any task you would like to redo!
             <br>
-            To create a task,
-            <a class="nav-link active" aria-current="page" href="{% url 'addtask' %}">
-                Click here to get started!</a>
-        </div>
+            <br>
+            <button class="btn btn-primary">
+            <a class="nav-link active" aria-current="page" href="{% url 'addtask' %}">New Task</a>
+            </button>
+ 
+            <button class="btn btn-primary">
+            <a class="nav-link active" aria-current="page" href="{% url 'viewcompletedtasks' %}">View completed tasks</a>
+            </button>
+        </h5>
     {% endif %}
 
     <ul class="tasks">
