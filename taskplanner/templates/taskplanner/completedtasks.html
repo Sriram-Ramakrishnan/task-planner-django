@@ -18,6 +18,9 @@
             {% endif %}
             <a href="{% url 'viewtask' task.id %}"> Click here to view!</a>
             </div>
+            <div class="card-footer">
+                Completed on {{task.completed_date}}
+            </div>
         </div></li>
         {% endfor %}
     </ul>

@@ -106,15 +106,19 @@ def completetask(request,task_pk):
         task.completed_date = timezone.now()
         task.save()
         return redirect('home')
-    else:
-        form = TaskForm(instance=task)
-        data['form'] = form
-        return render(request, 'taskplanner/task.html', data)
 
 #--------------- View Completed Tasks ---------------
 def viewcompletedtasks(request):
     try:
-        tasks = Task.objects.filter(user = request.user, completed_date__isnull=False)
+        tasks = Task.objects.filter(user = request.user, completed_date__isnull=False).order_by('-completed_date')
         return render(request, 'taskplanner/completedtasks.html', {'tasks':tasks})
     except TypeError:
         return render(request, 'taskplanner/home.html')
+
+#--------------- Delete a task ---------------
+def deletetask(request, task_pk):
+    task = get_object_or_404(Task,pk=task_pk, user = request.user)
+    data = {'task':task}
+    if request.method == 'POST':
+        task.delete()
+        return redirect('home')

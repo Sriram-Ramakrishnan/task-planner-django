@@ -13,6 +13,7 @@
     margin: 2% auto;
 }
 
+/*----------------------Navbar styling---------------- */
 .navbar{
     background-color: #e3f2fd;
     
@@ -21,6 +22,10 @@
     display: flex;
     margin: 0 15%;
     align-items: center;
+}
+
+.navbar .nav-link:hover{
+    color: #1969a7;
 }
 
 /*---------------------CSS of Integrated Login and Signup Page------------------*/

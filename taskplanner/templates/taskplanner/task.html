@@ -4,14 +4,21 @@
 <h2 class="alert alert-danger"> {{ error }}</h2>
 <div class="tasks">
     <div class="card task">
+        <!-- Save your task -->
         <form action="" method="post">
             {{ form.as_div }}
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-success"> Save </button>
+        <button type="submit" class="btn btn-outline-success"> Save Task</button>
         </form>
+        <!-- Complete the task -->
         <form action="{% url 'completetask' task.id %}" method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-success"> Complete </button>
+        <button type="submit" class="btn btn-outline-success"> Complete Task </button>
+        </form>
+        <!-- Delete the task -->
+        <form action="{% url 'deletetask' task.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger"> Delete Task </button>
         </form>
     </div>
 </div>
