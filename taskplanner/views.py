@@ -5,6 +5,7 @@ from django.db import IntegrityError
 from django.contrib.auth import login,logout,authenticate
 from .models import Task
 from .forms import TaskForm
+from django.utils import timezone
 
 
 #-------------- Creating a user ------------------
@@ -79,6 +80,41 @@ def addtask(request):
 #-------------- View a task separately -----------
 
 def viewtask(request, task_pk):
-    task = get_object_or_404(Task,pk=task_pk)
-    data = {'id': task_pk,'task':task}
-    return render(request, 'taskplanner/task.html', data)
+    task = get_object_or_404(Task,pk=task_pk, user = request.user)
+    data = {'task':task}
+    if request.method == 'GET':
+        form = TaskForm(instance=task)
+        data['form'] = form
+        return render(request, 'taskplanner/task.html', data)
+    else:
+        try:
+            #----------Task Modified--------------
+            form = TaskForm(request.POST, instance=task)
+            form.save()
+            return redirect('home')
+        except ValueError:
+            data['error'] = 'Improper data, try again!'
+            data['form'] = form
+            return render(request, 'taskplanner/task.html',data)
+
+#----------------- Complete a task ------------------
+def completetask(request,task_pk):
+    task = get_object_or_404(Task,pk=task_pk, user = request.user)
+    data = {'task':task}
+    if request.method == 'POST':
+        task.completed = True
+        task.completed_date = timezone.now()
+        task.save()
+        return redirect('home')
+    else:
+        form = TaskForm(instance=task)
+        data['form'] = form
+        return render(request, 'taskplanner/task.html', data)
+
+#--------------- View Completed Tasks ---------------
+def viewcompletedtasks(request):
+    try:
+        tasks = Task.objects.filter(user = request.user, completed_date__isnull=True)
+        return render(request, 'taskplanner/home.html', {'tasks':tasks})
+    except TypeError:
+        return render(request, 'taskplanner/home.html')

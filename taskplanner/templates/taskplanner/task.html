@@ -1,13 +1,18 @@
 {% extends 'taskplanner/base.html'%}
-{% block content %}    
+{% block content %}  
+
+<h2 class="alert alert-danger"> {{ error }}</h2>
 <div class="tasks">
     <div class="card task">
-        <div class="card-header">{{task.title}}</div>
-        <div class="card-body">
-        {% if task.description %}
-            {{task.description}}
-        {% endif %}
-        </div>
+        <form action="" method="post">
+            {{ form.as_div }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-success"> Save </button>
+        </form>
+        <form action="{% url 'completetask' task.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-success"> Complete </button>
+        </form>
     </div>
 </div>
 <br>
