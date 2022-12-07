@@ -34,7 +34,7 @@ def signupuser(request):
 #-------------- Main Page: Contains the tasks ------------------
 def home(request):
     try:
-        tasks = Task.objects.filter(user = request.user, completed_date__isnull=True)
+        tasks = Task.objects.filter(user = request.user, completed_date__isnull=True).order_by('-created')
         return render(request, 'taskplanner/home.html', {'tasks':tasks})
     except TypeError:
         return render(request, 'taskplanner/home.html')
