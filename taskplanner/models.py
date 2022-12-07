@@ -10,6 +10,8 @@ class Task(models.Model):
     description = models.TextField(blank=True)
     # When the task was created:
     created = models.DateField(auto_now_add=True)
+    start_time = models.CharField(max_length=100,null=True,blank=True)
+    end_time = models.CharField(max_length=100,null=True,blank=True)
     # The time you need to completed the task
     time_req = models.CharField(max_length=100,null=True,blank=True)
     # Task has been completed or not:

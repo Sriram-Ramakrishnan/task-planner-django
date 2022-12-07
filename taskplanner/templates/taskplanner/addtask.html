@@ -18,6 +18,15 @@
                 <input type="text" name="time_req" id="id_time_req" class="form-control">
                 <div class="form-text"> You can enter time in any format <br> E.g. 45 minutes, 2 hours </div>
             </div>
+            <div class="mb-3">
+                <label for="id_start_time" class="form-label" >Start Time</label>
+                <input type="text" name="start_time" id="id_start_time" class="form-control">
+                <div class="form-text"> You can enter time in any format <br> E.g. 9 a.m., 09:00 </div>
+            </div>
+            <div class="mb-3">
+                <label for="id_end_time" class="form-label" >End Time</label>
+                <input type="text" name="end_time" id="id_end_time" class="form-control">
+            </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Create Task</button>
         </form>
