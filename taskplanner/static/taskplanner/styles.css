@@ -34,26 +34,6 @@
     color: #1969a7;
 }
 
-/*---------------------CSS of Integrated Login and Signup Page------------------*/
-#auth-page {
-    position: absolute;
-    left: 30%;
-    width: 40%;
-    padding: 2%;
-    border: 1px solid black;
-  }
-
-.signupform,
-.loginform {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.signupform{
-    display: none;
-}
-
 /* ---------------------Tasks styling----------------------------- */
 .tasks{
     width: 50%;
@@ -79,27 +59,76 @@
     width: 100%;
 }
 
-
-
-
 /*---------------------Mobile View------------------*/
 
 @media (max-width: 768px) {
-    /* Signup and Login */
+    /*----------------------Individual Login and Signup page CSS---------------- */
     .signup,.login{
         position: relative;
         width: 90%;
-        left: 5%;
+        left: 0%;
         margin: 10% 0;
     }
     .signup button, .login button{
         width: 100%;
         margin-bottom: 2.5%;
     }
-    /* Navbar */
+    /*----------------------Navbar styling---------------- */
     .navbar .container-fluid{
         display: flex;
         margin: 0 5%;
         align-items: center;
     }
+    /*----------------------Landing page styling---------------- */
+    .landing{
+        margin: 3% 1%;
+        padding: 2%;
+        width: 90%;
+        font-size: 1.1em;
+    }
+    /* ---------------------Tasks styling----------------------------- */
+    .tasks{
+        width: 100%;
+        margin: 2.5%;
+    }
+    
+    .tasks .card{
+        width: 90%;
+        margin: 0 2.5%;
+        margin-top: 5%;
+    }
+    /* ---------------------Individual Tasks----------------------------- */
+    .task{
+        margin: 5% 0;
+        padding: 5% 2.5% 2%;
+        width: 90%;
+    }   
+    .task .task{
+        width: 100%;
+    }
+    .task button{
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 3%;
+    }
+}
+
+/*---------------------CSS of Integrated Login and Signup Page------------------*/
+#auth-page {
+    position: absolute;
+    left: 30%;
+    width: 40%;
+    padding: 2%;
+    border: 1px solid black;
+  }
+
+.signupform,
+.loginform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signupform{
+    display: none;
 }

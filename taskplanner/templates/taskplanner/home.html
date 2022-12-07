@@ -49,10 +49,11 @@
                 End time: {{task.end_time}}
             </div>
             </div>
+            {% if task.time_req %}
             <div class="card-footer">
-                {% if task.time_req %}
-                    Time needed to complete: {{task.time_req}}
-                {% endif %}</div>
+                Time needed to complete: {{task.time_req}}
+            </div>
+            {% endif %}
         </div></li>
         {% endfor %}
     </ul>
