@@ -1,8 +1,5 @@
-
-
-      
+// Code for Integrated signin and login toggle  
 document.addEventListener("DOMContentLoaded", ()=>{
-    // Sign In and Sign Up toggle 
     // Sign In and Sign Up toggle 
     const signupform = document.querySelector('.signupform');
     const loginform = document.querySelector('.loginform');
@@ -23,5 +20,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             login.className = "btn btn-info";
         }   
     }
+
     }
 )

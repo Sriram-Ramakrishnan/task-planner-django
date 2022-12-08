@@ -6,7 +6,7 @@
         <h3 class="text-center">Modify task</h3>
         <!-- Save your task -->
         <form action="" method="post" class="task">
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="id_title" class="form-label">Title</label>
                 <input type="text" name="title" maxlength="100" required="" id="id_title" class="form-control" value="{{ task.title }}">  
             </div>
@@ -15,20 +15,31 @@
                 <textarea name="description" cols="40" rows="10" id="id_description" class="form-control" value="">{{ task.description }}</textarea>
             </div>
             <div class="mb-3">
-                <label for="id_time_req" class="form-label">Time required</label>
-                <input type="text" name="time_req" id="id_time_req" class="form-control" value="{{task.time_req}}">
-                <div class="form-text"> You can enter time in any format <br> E.g. 45 minutes, 2 hours </div>
+                <label for="id_deadline" class="form-label">Deadline</label>
+                <input type="date" name="deadline" id="id_deadline" class="form-control" value="{{ task.deadline.year }}-{{ task.deadline.month }}-1{{ task.deadline.day }}">
+                <div class="form-text"> Pick the deadline of the task! </div>
+            </div>
+            <hr>
+            <h4 class="text-center"> Allocate time for your task!</h4>
+            <div class="mb-3">
+                <label for="id_do_date" class="form-label">Date</label>
+                <input type="date" name="do_date" id="id_do_date" class="form-control" value="{{ task.do_date }}">
             </div>
             <div class="mb-3">
                 <label for="id_start_time" class="form-label" >Start Time</label>
-                <input type="text" name="start_time" id="id_start_time" class="form-control" value="{{task.start_time}}">
-                <div class="form-text"> You can enter time in any format, E.g. 9 a.m., 09:00 </div>
+                <input type="time" name="start_time" id="id_start_time" class="form-control" value="{{ task.start_time }}">
+                {{ task.start_time }}
             </div>
             <div class="mb-3">
                 <label for="id_end_time" class="form-label" >End Time</label>
-                <input type="text" name="end_time" id="id_end_time" class="form-control" value="{{task.end_time}}">
-                <div class="form-text"> You can enter time in any format, E.g. 9 a.m., 09:00 </div>
-            </div>
+                <input type="time" name="end_time" id="id_end_time" class="form-control" value="{{ task.end_time }}">
+                {{ task.end_time }}
+            </div> -->
+            {% for field in form %}
+                <div class="mb-3">
+                    <label class="form-label">{{field.label}}</label>
+                    <div class="form-control">{{field}}</div></div>
+            {% endfor %}
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Save Task</button>
         {% if task.completed is not True %}

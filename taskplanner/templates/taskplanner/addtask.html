@@ -14,20 +14,25 @@
                 <textarea name="description" cols="40" rows="10" id="id_description" class="form-control"></textarea>
             </div>
             <div class="mb-3">
-                <label for="id_time_req" class="form-label">Time required</label>
-                <input type="text" name="time_req" id="id_time_req" class="form-control">
+                <label for="id_deadline" class="form-label">Deadline</label>
+                <input type="date" name="deadline" id="id_deadline" class="form-control">
                 <div class="form-text"> You can enter time in any format <br> E.g. 45 minutes, 2 hours </div>
+            </div>
+            <hr>
+            <h4 class="text-center"> Allocate time for your task!</h4>
+            <div class="mb-3">
+                <label for="id_do_date" class="form-label">Date</label>
+                <input type="date" name="do_date" id="id_do_date" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="id_start_time" class="form-label" >Start Time</label>
-                <input type="text" name="start_time" id="id_start_time" class="form-control">
-                <div class="form-text"> You can enter time in any format, E.g. 9 a.m., 09:00 </div>
+                <input type="time" name="start_time" id="id_start_time" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="id_end_time" class="form-label" >End Time</label>
-                <input type="text" name="end_time" id="id_end_time" class="form-control">
-                <div class="form-text"> You can enter time in any format, E.g. 9 a.m., 09:00 </div>
+                <input type="time" name="end_time" id="id_end_time" class="form-control">
             </div>
+            
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Create Task</button>
         </form>

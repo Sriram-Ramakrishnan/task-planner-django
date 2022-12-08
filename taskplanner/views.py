@@ -84,7 +84,7 @@ def addtask(request):
 @login_required
 def viewtask(request, task_pk):
     task = get_object_or_404(Task,pk=task_pk, user = request.user)
-    data = {'task':task}
+    data = {'task':task,'form': TaskForm(task)}
     if request.method == 'GET':
         form = TaskForm(instance=task)
         data['form'] = form
@@ -139,3 +139,5 @@ def redotask(request,task_pk):
         task.completed_date = None
         task.save()
         return redirect('home')
+
+
