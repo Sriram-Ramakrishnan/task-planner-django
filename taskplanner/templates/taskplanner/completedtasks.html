@@ -2,26 +2,46 @@
 {% block content %}
 <br>
     <h3>Completed Tasks</h3>
-    <ul class="tasks">
-        {% for task in tasks %}
-        <li><div class="card">
-            <div class="card-header">{{task.title}}</div>
-            <div class="card-body">
-            {% if task.description %}
-                {{task.description}}
-            {% endif %}
-            <div class="start_time">
+    {% if tasks.count == 0 %}
+    <h5 class="text-center text-primary landing">
+        You do not have any completed tasks.
+        To check if you have any current task to do, go to Current Tasks and select any task you would like to complete as soon as possible!
+        <br>
+        <br>
+        <button class="btn btn-primary">
+        <a class="nav-link active" aria-current="page" href="{% url 'addtask' %}">New Task</a>
+        </button>
+
+        <button class="btn btn-primary">
+        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">View current tasks</a>
+        </button>
+    </h5>
+{% endif %}
+
+<ul class="tasks">
+    {% for task in tasks %}
+    <li><div class="card">
+        <div class="card-header">{{task.title}}</div>
+        <div class="card-body">
+        {% if task.description %}
+            {{task.description}}
+        {% endif %}
+        <a href="{% url 'viewtask' task.id %}" class="stretched-link"></a>
+        </div>
+        <div class="flexy">
+            <span class="text-center card-body start_time">
                 Start time: {{task.start_time}}
-            </div>
-            <div class="end_time">
+            </span>
+            <span class="text-center card-body end_time">
                 End time: {{task.end_time}}
-            </div>
-            <a href="{% url 'viewtask' task.id %}" class="stretched-link"></a>
-            </div>
-            <div class="card-footer">
-                Completed on {{task.completed_date}}
-            </div>
-        </div></li>
-        {% endfor %}
-    </ul>
+            </span>
+        </div>
+        {% if task.deadline %}
+        <div class="card-footer">
+            Completed on: {{task.completed_date}}
+        </div>
+        {% endif %}
+    </div></li>
+    {% endfor %}
+</ul>
 {% endblock %}

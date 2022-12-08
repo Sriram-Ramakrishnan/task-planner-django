@@ -49,6 +49,16 @@
     margin: 2.5% 0;
 }
 
+.flexy{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.175);
+}
+.flexy span{
+    border-right: 0.5px solid rgba(0, 0, 0, 0.175);
+}
+
 /* ---------------------Individual Tasks----------------------------- */
 .task{
     margin: 2.5% 0;
@@ -58,6 +68,8 @@
 .task .task{
     width: 100%;
 }
+
+
 
 /*---------------------Mobile View------------------*/
 

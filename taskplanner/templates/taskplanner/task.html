@@ -38,7 +38,7 @@
             {% for field in form %}
                 <div class="mb-3">
                     <label class="form-label">{{field.label}}</label>
-                    <div class="form-control">{{field}}</div></div>
+                    {{field}}</div>
             {% endfor %}
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Save Task</button>

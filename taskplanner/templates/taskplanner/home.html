@@ -42,16 +42,18 @@
                 {{task.description}}
             {% endif %}
             <a href="{% url 'viewtask' task.id %}" class="stretched-link"></a>
-            <div class="start_time">
-                Start time: {{task.start_time}}
             </div>
-            <div class="end_time">
-                End time: {{task.end_time}}
+            <div class="flexy">
+                <span class="text-center card-body start_time">
+                    Start time: {{task.start_time}}
+                </span>
+                <span class="text-center card-body end_time">
+                    End time: {{task.end_time}}
+                </span>
             </div>
-            </div>
-            {% if task.time_req %}
+            {% if task.deadline %}
             <div class="card-footer">
-                Time needed to complete: {{task.time_req}}
+                Deadline: {{task.deadline}}
             </div>
             {% endif %}
         </div></li>
