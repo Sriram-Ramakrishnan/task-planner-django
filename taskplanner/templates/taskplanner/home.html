@@ -32,8 +32,12 @@
             </button>
         </h5>
     {% endif %}
-
-    <ul class="tasks">
+    
+    <div class="viewtoggle btn-group container-fluid" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-info" id="loginform"> Individual view</button>
+        <button type="button" class="btn btn-secondary" id="signupform"> Table view </button>
+      </div>   
+    <ul class="soloview tasks">
         {% for task in tasks %}
         <li><div class="card">
             <div class="card-header">{{task.title}}</div>
@@ -58,6 +62,26 @@
             {% endif %}
         </div></li>
         {% endfor %}
+    </ul>
+    <ul class="current tableview tasks">
+        <table class="text-center">
+            <tr class="text-center">
+            <th>Title</th>
+            <th>Date</th>
+            <th>Start time</th>
+            <th>End Time</th>
+            <th> Deadline</th>
+            </tr>
+        {% for task in tasks %}
+        <tr>
+            <th>{{task.title}}<a href="{% url 'viewtask' task.id %}" class="stretched-link"></a></th>
+            <th>{{task.do_date}}</th>
+            <th>{{task.start_time}}</th>
+            <th>{{task.end_time}}</th>
+            <th>{{task.deadline}}</th>
+        </tr>
+        {% endfor %}
+    </table>
     </ul>
     {% endif %}
 {% endblock %}

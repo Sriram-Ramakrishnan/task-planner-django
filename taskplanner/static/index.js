@@ -1,11 +1,11 @@
-// Code for Integrated signin and login toggle  
+// Code for Integrated signin and login toggle
+
 document.addEventListener("DOMContentLoaded", ()=>{
     // Sign In and Sign Up toggle 
-    const signupform = document.querySelector('.signupform');
-    const loginform = document.querySelector('.loginform');
+    const signupform = document.querySelector('.tableview');
+    const loginform = document.querySelector('.soloview');
     var signup =document.getElementById("signupform");
     var login = document.getElementById("loginform");
-    if (!signup&&login) { 
         signup.onclick = function(){
             signupform.style["display"] = "flex";
             loginform.style["display"] = "none";
@@ -19,7 +19,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
             signup.className = "btn btn-secondary";
             login.className = "btn btn-info";
         }   
-    }
-
     }
 )

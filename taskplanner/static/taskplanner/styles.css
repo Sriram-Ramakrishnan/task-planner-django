@@ -69,7 +69,36 @@
     width: 100%;
 }
 
+/*---------------------CSS of Views in Home page------------------*/
+.viewtoggle {
+    position: relative;
+    width: 30%;
+    padding: 2%;
+  }
 
+.soloview,
+.tableview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tableview{
+    display: none;
+}
+    /* Table Styling */
+.current table{
+    position: absolute;
+    width: 120%;
+    top:10%;
+    left:-10%;
+    border-radius: 25px;
+}
+
+.current th{
+    border: 0.5px solid rgba(0, 0, 0, 0.175);
+    padding: 2%;
+}
 
 /*---------------------Mobile View------------------*/
 
@@ -123,24 +152,11 @@
         margin-left: 5%;
         margin-bottom: 3%;
     }
+    /*---------------------CSS of Views in Home page------------------*/
+    /* Table view in mobile is constrained */
+    .viewtoggle {
+       display: none;
+    }
 }
 
-/*---------------------CSS of Integrated Login and Signup Page------------------*/
-#auth-page {
-    position: absolute;
-    left: 30%;
-    width: 40%;
-    padding: 2%;
-    border: 1px solid black;
-  }
 
-.signupform,
-.loginform {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.signupform{
-    display: none;
-}
