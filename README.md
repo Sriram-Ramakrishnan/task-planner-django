@@ -5,4 +5,7 @@ Hey guys! I'm learning Django from this Udemy course down below, do check it out
 
 ## Description
 * This project is a task planner using Django and is different from the project done in the above course
-* Will be deployed soon!
+* Check it out here: https://djangodeploy2022.pythonanywhere.com/
+* You can create tasks, allocate a specific duration for them and complete them! If you would like to do the task again, you can redo the task again!
+
+
