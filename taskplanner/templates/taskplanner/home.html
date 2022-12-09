@@ -73,7 +73,8 @@
             <th> Deadline</th>
             </tr>
         {% for task in tasks %}
-        <tr>
+    <!-- Stretched-link can stretch outside the container so position-relative is required -->
+        <tr class="position-relative">
             <th>{{task.title}}<a href="{% url 'viewtask' task.id %}" class="stretched-link"></a></th>
             <th>{{task.do_date}}</th>
             <th>{{task.start_time}}</th>

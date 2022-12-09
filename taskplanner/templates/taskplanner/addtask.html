@@ -3,12 +3,22 @@
 {% block content %}
     <div class="task card">
         <h1 class="text-center"> Create Task </h1>
-        <h2 class="text-danger">{{ error }}</h2>
+        <h2 class="text-center text-danger">{{ error }}</h2>
         <form action="" method="post" class="task">
             {% for field in form %}
+            {% if field.label == 'Do date' %}
+                <hr>
+                <h3 class="text-center"> Allocate time for your tasks!</h3>
+                <br>
                 <div class="mb-3">
-                    <label class="form-label">{{field.label}}</label>
+                    <label class="form-label">Date</label>
                     {{field}}</div>
+            {% else %}
+            <div class="mb-3">
+                <label class="form-label">{{field.label}}</label>
+                {{field}}</div>
+            {% endif %}
+                    
             {% endfor %}
             <!-- <div class="mb-3">
                 <label for="id_title" class="form-label">Title</label>

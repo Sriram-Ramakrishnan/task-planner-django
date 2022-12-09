@@ -36,9 +36,18 @@
                 {{ task.end_time }}
             </div> -->
             {% for field in form %}
+                {% if field.label == 'Do date' %}
+                    <hr>
+                    <h3 class="text-center"> Allocate time for your tasks!</h3>
+                    <br>
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        {{field}}</div>
+                {% else %}
                 <div class="mb-3">
                     <label class="form-label">{{field.label}}</label>
                     {{field}}</div>
+                {% endif %}
             {% endfor %}
         {% csrf_token %}
         <button type="submit" class="btn btn-outline-success"> Save Task</button>
