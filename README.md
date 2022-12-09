@@ -12,3 +12,12 @@ Hey guys! I'm learning Django from this Udemy course down below, do check it out
 <img src="https://res.cloudinary.com/dpxlluhmw/image/upload/v1670588828/Flowchart-1_qmn2v8.png">
 <img src="https://res.cloudinary.com/dpxlluhmw/image/upload/v1670588840/Flowchart-2_fh6ylg.png">
 
+## Running this in your local machine:
+* Make sure you have Python and Django 3 or 4 installed in your local machine.
+* Clone the repository by using the command below:
+
+     ```git clone https://github.com/Sriram-Ramakrishnan/DjangoProject3.git ```
+
+* After cloning, run the following command in your terminal after navigating inside the project folder
+
+     ```python manage.py runserver ```
