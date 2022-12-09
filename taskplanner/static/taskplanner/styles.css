@@ -89,13 +89,26 @@
     /* Table Styling */
 .current table{
     position: absolute;
-    width: 120%;
+    width: 150%;
     top:10%;
-    left:-10%;
+    left:-25%;
     border-radius: 25px;
 }
 
 .current th{
+    border: 0.5px solid rgba(0, 0, 0, 0.175);
+    padding: 2%;
+}
+
+.current th:nth-child(1){
+    width: 40%;
+}
+
+.completed table{
+    width: 100%;
+}
+
+.completed th{
     border: 0.5px solid rgba(0, 0, 0, 0.175);
     padding: 2%;
 }
